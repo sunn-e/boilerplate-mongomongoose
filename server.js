@@ -58,7 +58,6 @@ router.get("/file/*?", function (req, res, next) {
 
 router.get("/is-mongoose-ok", function (req, res) {
   if (mongoose) {
-    console.log("is-mongoose-ok", mongoose.connection.readyState);
     res.json({ isMongooseOk: !!mongoose.connection.readyState });
   } else {
     res.json({ isMongooseOk: false });
