@@ -19,19 +19,19 @@ const personSchema = new mongoose.Schema({
 //A model is a class with which we construct documents.
 const Person = mongoose.model("Person", personSchema);
 
-//creating a document
-//couldn't test
-// const Sunny = new Person({
-//   name: "Sunny",
-//   age: 0,
-//   favoriteFoods: ["garlicbread", "stuffed Garlicbread"],
-//   dankmeme: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-// });
-// console.log("yoyoyo", Sunny.name);
-
 // let Person;
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  //   creating a document
+  var sunny = new Person({
+    name: "Sunny",
+    age: 84,
+    favoriteFoods: ["eggs", "fish", "fresh fruit"],
+  });
+
+  sunny.save(function (err, data) {
+    if (err) return console.error(err);
+    done(null, data);
+  });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
