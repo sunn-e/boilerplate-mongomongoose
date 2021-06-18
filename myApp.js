@@ -7,8 +7,29 @@ try {
   console.log(e);
 }
 
-let Person;
+//defining schema
+const personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String],
+  dankmeme: String,
+});
 
+//compiling our schema into a Model.
+//A model is a class with which we construct documents.
+const Person = mongoose.model("Person", personSchema);
+
+//creating a document
+//couldn't test
+// const Sunny = new Person({
+//   name: "Sunny",
+//   age: 0,
+//   favoriteFoods: ["garlicbread", "stuffed Garlicbread"],
+//   dankmeme: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+// });
+// console.log("yoyoyo", Sunny.name);
+
+// let Person;
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
 };
